@@ -4,21 +4,21 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh './mvnw clean install'
+                    sh './mvn clean install'
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    sh './mvnw test'
+                    sh './mvn test'
                 }
             }
         }
         stage('Package') {
             steps {
                 script {
-                    sh './mvnw package'
+                    sh './mvn package'
                 }
             }
         }
