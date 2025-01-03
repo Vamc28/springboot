@@ -3,7 +3,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './mvnw clean install'
+                script {
+                    sh './mvnw clean install'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    sh './mvnw test'
+                }
+            }
+        }
+        stage('Package') {
+            steps {
+                script {
+                    sh './mvnw package'
+                }
             }
         }
     }
