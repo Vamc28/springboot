@@ -1,24 +1,19 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
                 script {
-                    sh './mvnw clean install'
+                    checkout scm
                 }
             }
         }
-        stage('Test') {
+
+        stage('Build and Test') {
             steps {
                 script {
-                    sh './mvnw test'
-                }
-            }
-        }
-        stage('Package') {
-            steps {
-                script {
-                    sh './mvnw package'
+                    sh 'mvn clean package'
                 }
             }
         }
